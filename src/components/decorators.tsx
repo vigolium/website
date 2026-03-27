@@ -1,35 +1,35 @@
 "use client";
 
-export function CornerBrackets({ size = "w-3 h-3" }: { size?: string }) {
-  const borderColor = "rgba(80, 250, 123, 0.4)";
+export function CornerBrackets({ size = "w-7 h-7" }: { size?: string }) {
+  const borderColor = "#50fa7b";
   return (
     <>
       <span
         className={`absolute top-0 left-0 ${size}`}
         style={{
-          borderTop: `1px solid ${borderColor}`,
-          borderLeft: `1px solid ${borderColor}`,
+          borderTop: `2px solid ${borderColor}`,
+          borderLeft: `2px solid ${borderColor}`,
         }}
       />
       <span
         className={`absolute top-0 right-0 ${size}`}
         style={{
-          borderTop: `1px solid ${borderColor}`,
-          borderRight: `1px solid ${borderColor}`,
+          borderTop: `2px solid ${borderColor}`,
+          borderRight: `2px solid ${borderColor}`,
         }}
       />
       <span
         className={`absolute bottom-0 left-0 ${size}`}
         style={{
-          borderBottom: `1px solid ${borderColor}`,
-          borderLeft: `1px solid ${borderColor}`,
+          borderBottom: `2px solid ${borderColor}`,
+          borderLeft: `2px solid ${borderColor}`,
         }}
       />
       <span
         className={`absolute bottom-0 right-0 ${size}`}
         style={{
-          borderBottom: `1px solid ${borderColor}`,
-          borderRight: `1px solid ${borderColor}`,
+          borderBottom: `2px solid ${borderColor}`,
+          borderRight: `2px solid ${borderColor}`,
         }}
       />
     </>
@@ -79,7 +79,7 @@ export function DimensionLine({
             ? { writingMode: "vertical-rl", transform: "rotate(180deg)" }
             : {}),
           padding: "0 4px",
-          backgroundColor: "#000000",
+          backgroundColor: "#1c1b19",
           fontSize: "0.6rem",
           color: "rgba(80, 250, 123, 0.5)",
           whiteSpace: "nowrap",

@@ -43,18 +43,18 @@ export interface FooterLink {
 
 export const hero: HeroContent = {
   headline:
-    "Find what others miss",
+    "Agentic intelligence that scans with surgical precision",
   subheadline:
     "High-fidelity vulnerability scanner fusing agentic AI with native speed, modularity, and precision.",
-  ctaPrimary: { label: "Get Started", href: "https://github.com/vigolium/vigolium" },
-  ctaSecondary: { label: "Documentation", href: "http://docs.vigolium.com/" },
+  ctaPrimary: { label: "Get Started", href: "https://github.com/vigolium" },
+  ctaSecondary: { label: "Documentation", href: "https://docs.vigolium.com/" },
 };
 
 export const features: Feature[] = [
   {
     title: "Native Scan",
     description:
-      "Deterministic, multi-phase scanning with 130 active and 85 passive modules. Content discovery, browser spidering, SPA crawling, SAST, and audit — all in one pipeline.",
+      "Deterministic, multi-phase scanning with active and passive modules. Content discovery, browser spidering, SPA crawling, SAST, and audit — all in one pipeline.",
     iconName: "Scan",
   },
   {
@@ -70,9 +70,9 @@ export const features: Feature[] = [
     iconName: "Zap",
   },
   {
-    title: "JavaScript Extensions",
+    title: "Dynamic Extensions",
     description:
-      "Write custom modules and hooks via an embedded JS engine with session-aware HTTP APIs, CSRF extraction, and multi-step auth flows.",
+      "Agents write custom checks on the fly via an embedded JS engine. Discover and load sessions during scans with session-aware HTTP APIs and multi-step auth flows.",
     iconName: "Blocks",
   },
 ];
@@ -123,16 +123,17 @@ export const capabilities: Capability[] = [
     detail: "Firebase, cloud storage takeover, default credentials, web cache poisoning, CORS misconfiguration",
   },
   {
-    title: "Out-of-Band",
-    detail: "Blind SSRF, blind XSS, blind SSTI, and command injection via OAST callback probes",
+    title: "Adaptive Learning",
+    detail: "Agents continuously learn from scan results, refining detection strategies and adapting to new attack surfaces",
   },
 ];
 
 export const stats: Stat[] = [
-  { value: "215", label: "Scanner modules — active and passive" },
-  { value: "2", label: "Scan modes — Native and Agentic" },
+  { value: "215+", label: "Scanner modules — active and passive" },
+  { value: "6", label: "Native scan phases" },
+  { value: "12", label: "Agentic scan phases" },
   { value: "10+", label: "Frameworks with dedicated scanners" },
-  { value: "6", label: "Input formats — URLs, OpenAPI, Burp, cURL, Postman, Nuclei" },
+  { value: "∞", label: "Agent learning capacity — always evolving" },
 ];
 
 export const integrations: Integration[] = [
@@ -159,7 +160,7 @@ export const integrations: Integration[] = [
 ];
 
 export const footerCta = {
-  headline: "Clone, build, scan. Under 60 seconds.",
+  headline: "Clone, build, scan. Under 5 minutes.",
   buttonLabel: "View on GitHub",
   buttonHref: "https://github.com/vigolium/vigolium",
 };
@@ -167,4 +168,6 @@ export const footerCta = {
 export const footerLinks: FooterLink[] = [
   { label: "Documentation", href: "http://docs.vigolium.com/" },
   { label: "GitHub", href: "https://github.com/vigolium" },
+  { label: "Twitter", href: "https://x.com/j3ssie" },
+  { label: "LinkedIn", href: "https://linkedin.com/in/jessie-aiho" },
 ];

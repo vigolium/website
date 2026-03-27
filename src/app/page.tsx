@@ -9,7 +9,10 @@ import { HowItWorks } from "@/components/HowItWorks";
 import { Capabilities } from "@/components/Capabilities";
 import { Stats } from "@/components/Stats";
 import { Integrations } from "@/components/Integrations";
+import { Gallery } from "@/components/Gallery";
+import { Cloud } from "@/components/Cloud";
 import { Footer } from "@/components/Footer";
+import { ScrollProgress } from "@/components/animations";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -129,41 +132,74 @@ function HexWatermark() {
   );
 }
 
+const SECTION_IDS = ["features", "how-it-works", "capabilities", "stats", "integrations", "gallery", "cloud"];
+
+function HashTracker() {
+  useEffect(() => {
+    const sections = SECTION_IDS.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            history.replaceState(null, "", `#${id}`);
+            return;
+          }
+        }
+        // If no tracked section is visible, clear the hash (hero area)
+        if (window.scrollY < window.innerHeight / 2) {
+          history.replaceState(null, "", window.location.pathname);
+        }
+      },
+      { rootMargin: "-40% 0px -50% 0px" },
+    );
+
+    for (const el of sections) observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return null;
+}
+
 export default function Page() {
   return (
     <div
       className={`${spaceGrotesk.variable} relative min-h-screen overflow-x-hidden`}
       style={{
         fontFamily: "var(--font-space), sans-serif",
-        backgroundColor: "#000000",
-        color: "#ffffff",
+        backgroundColor: "#1c1b19",
+        color: "#fce8c3",
       }}
     >
+      {/* Scroll progress bar */}
+      <ScrollProgress />
+      <HashTracker />
+
       {/* Noise grain */}
       <NoiseGrain />
 
-      {/* Hex watermark - right margin */}
-      <HexWatermark />
 
       {/* Dot grid overlay */}
       <div
         className="pointer-events-none fixed inset-0 z-0"
         style={{
           backgroundImage:
-            "radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)",
+            "radial-gradient(circle, rgba(252,232,195,0.1) 1px, transparent 1px)",
           backgroundSize: "24px 24px",
         }}
       />
 
       <style jsx global>{`
         :root {
-          --ng-black: #000000;
-          --ng-white: #ffffff;
-          --ng-gray: #888888;
-          --ng-gray-dim: #333333;
+          --ng-black: #1c1b19;
+          --ng-white: #fce8c3;
+          --ng-gray: #baa67f;
+          --ng-gray-dim: #918175;
           --ng-neon: #50fa7b;
-          --ng-green: #ffb86c;
-          --ng-line: rgba(255, 255, 255, 0.1);
+          --ng-green: #53bdfa;
+          --ng-line: rgba(252, 232, 195, 0.1);
         }
 
         @keyframes slideUp {
@@ -305,6 +341,24 @@ export default function Page() {
           100% { stroke-dashoffset: 0; }
         }
 
+        @keyframes ctaGlowPulse {
+          0%, 100% {
+            box-shadow: 0 0 4px rgba(80,250,123,0.15), 0 0 16px rgba(80,250,123,0.08);
+          }
+          50% {
+            box-shadow: 0 0 8px rgba(80,250,123,0.3), 0 0 28px rgba(80,250,123,0.15);
+          }
+        }
+
+        .cta-glow-pulse {
+          animation: ctaGlowPulse 2.5s ease-in-out infinite;
+        }
+
+        .cta-glow-pulse:hover {
+          animation: none;
+          box-shadow: 0 0 12px rgba(80,250,123,0.4), 0 0 32px rgba(80,250,123,0.2);
+        }
+
         .ng-heading {
           font-family: var(--font-space), sans-serif;
           font-weight: 700;
@@ -325,7 +379,7 @@ export default function Page() {
         }
 
         .ng-link:hover {
-          color: var(--ng-green);
+          color: #f75341;
         }
 
         .ng-divider {
@@ -337,13 +391,14 @@ export default function Page() {
         .ng-section {
           position: relative;
           z-index: 1;
+          scroll-margin-top: 2rem;
         }
 
         .ngb-annotation {
           font-weight: 300;
           font-style: italic;
-          font-size: 0.7rem;
-          color: rgba(136, 136, 136, 0.7);
+          font-size: 0.85rem;
+          color: rgba(186, 166, 127, 0.7);
         }
 
         .ngb-corner-marks {
@@ -354,23 +409,23 @@ export default function Page() {
         .ngb-corner-marks::after {
           content: "";
           position: absolute;
-          width: 12px;
-          height: 12px;
-          border-color: rgba(80, 250, 123, 0.4);
+          width: 20px;
+          height: 20px;
+          border-color: #50fa7b;
         }
 
         .ngb-corner-marks::before {
           top: -1px;
           left: -1px;
-          border-top: 1px solid;
-          border-left: 1px solid;
+          border-top: 2px solid;
+          border-left: 2px solid;
         }
 
         .ngb-corner-marks::after {
           bottom: -1px;
           right: -1px;
-          border-bottom: 1px solid;
-          border-right: 1px solid;
+          border-bottom: 2px solid;
+          border-right: 2px solid;
         }
       `}</style>
 
@@ -381,6 +436,8 @@ export default function Page() {
         <Capabilities />
         <Stats />
         <Integrations />
+        <Gallery />
+        <Cloud />
         <Footer />
       </div>
     </div>

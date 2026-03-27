@@ -1,0 +1,71 @@
+# Vigolium Documentation
+
+## Docs
+
+- [Agent Mode](https://docs.vigolium.com/agentic-scan/agent-mode.md): Vigolium's agent mode integrates AI agents into the vulnerability scanning workflow with query, autopilot, and swarm modes.
+- [Agent Autopilot](https://docs.vigolium.com/agentic-scan/autopilot.md): Agentic scan mode where AI agents autonomously drive the Vigolium CLI through a sandboxed terminal for vulnerability scanning.
+- [Agentic Scanning: How It Works](https://docs.vigolium.com/agentic-scan/how-it-works.md): Shared concepts and infrastructure behind Vigolium's agentic scanning modes, including protocols, backends, and session management.
+- [Agent Query Mode](https://docs.vigolium.com/agentic-scan/query.md): Single-shot AI prompt execution for code analysis, endpoint discovery, and security questions without network scanning.
+- [Agent Swarm](https://docs.vigolium.com/agentic-scan/swarm.md): Primary agentic scan mode that analyzes HTTP requests, generates custom attack payloads, and triages results in a multi-phase pipeline.
+- [Using the Vigolium Scanner Skill in Claude Code & Codex](https://docs.vigolium.com/agentic-scan/using-vigolium-in-your-agent.md): Install and use the vigolium-scanner skill with AI coding agents for web vulnerability scanning and extension authoring.
+- [Vigolium API Reference](https://docs.vigolium.com/api-overview.md): Base URL: http://localhost:9002 (default). For detailed documentation on each endpoint category, see the individual reference pages below.
+- [Vigolium API Reference — Agent](https://docs.vigolium.com/api-references/agent.md): AI agent API with query, autopilot, and swarm run modes, SSE streaming, session history, and OpenAI-compatible chat.
+- [Authentication](https://docs.vigolium.com/api-references/authentication.md): File-based user system with Bearer token authentication, roles, login, and token usage for the Vigolium API.
+- [Vigolium API Reference — Config](https://docs.vigolium.com/api-references/config.md): View and update server configuration using dot-notation keys with hot reload support.
+- [Vigolium API Reference — Generic Database API](https://docs.vigolium.com/api-references/database.md): Unified CRUD API for any database table with pagination, filtering, sorting, and full-text search.
+- [Vigolium API Reference — Extensions](https://docs.vigolium.com/api-references/extensions.md): Manage JavaScript and YAML extensions that add custom scanning logic, including listing, editing, and API docs.
+- [Vigolium API Reference — Findings](https://docs.vigolium.com/api-references/findings.md): List, retrieve, and delete vulnerability findings with filtering, pagination, and severity-based queries.
+- [Vigolium API Reference — GitHub Integration](https://docs.vigolium.com/api-references/github.md): Connect a GitHub account via OAuth to browse repositories and clone them for agent scans.
+- [Vigolium API Reference — HTTP Records](https://docs.vigolium.com/api-references/http-records.md): List, retrieve, and delete HTTP request/response records with filtering, pagination, and sorting options.
+- [Vigolium API Reference — Ingestion](https://docs.vigolium.com/api-references/ingestion.md): Import HTTP request/response data into the database for scanning via URLs, curl commands, HAR, OpenAPI, and more.
+- [Vigolium API Reference — Modules](https://docs.vigolium.com/api-references/modules.md): List registered active and passive scanner modules with search, tag filtering, and tag categories.
+- [Vigolium API Reference — OAST Interactions](https://docs.vigolium.com/api-references/oast-interactions.md): List, retrieve, and delete out-of-band application security testing interactions from interactsh callbacks.
+- [Vigolium API Reference — Overview](https://docs.vigolium.com/api-references/overview.md): Base URL, authentication, project scoping, health checks, and common endpoints for the Vigolium API server.
+- [Vigolium API Reference — Projects](https://docs.vigolium.com/api-references/projects.md): Manage projects for multi-tenant data isolation. All scan data is scoped to a project via project_uuid.
+- [Vigolium API Reference — Scan](https://docs.vigolium.com/api-references/scan.md): Single-target scans, scan management, scan history, pause/resume, logs, selective record scans, and repository uploads.
+- [Vigolium API Reference — Scope](https://docs.vigolium.com/api-references/scope.md): View and update the scope configuration that controls which HTTP records are in scope for scanning.
+- [Vigolium API Reference — Source Repos](https://docs.vigolium.com/api-references/source-repos.md): Manage links between application source code and target hostnames for source-aware scanning extensions.
+- [Vigolium API Reference — Stats](https://docs.vigolium.com/api-references/stats.md): Retrieve aggregated statistics about HTTP records, scanner modules, and findings.
+- [Benchmark Testing](https://docs.vigolium.com/benchmark/benchmark-testing.md): Covers the benchmark testing system for validating Vigolium's detection capabilities across all scanner modules.
+- [Whitebox Agent Benchmark Suite](https://docs.vigolium.com/benchmark/whitebox-agent.md): Describes the whitebox agent benchmark suite for validating Vigolium's AI agent pipeline.
+- [Whitebox SAST Benchmark Suite](https://docs.vigolium.com/benchmark/whitebox-sast.md): Describes the whitebox SAST benchmark suite for validating Vigolium's static analysis toolchain.
+- [Customizing & Extending Vigolium](https://docs.vigolium.com/customization/extending-vigolium.md): Covers every customization mechanism in Vigolium, from JS and YAML extensions to scanning profiles and agent backends.
+- [Writing Extensions](https://docs.vigolium.com/customization/writing-extensions.md): Guide to writing custom scanning extensions for Vigolium in JavaScript, YAML, quick checks, and snippets.
+- [Configuration Reference](https://docs.vigolium.com/getting-started/configuration.md): Vigolium uses a layered configuration system that merges settings from multiple sources. This document covers the config file format, environment variables, and every configurable section.
+- [Getting Started with Vigolium](https://docs.vigolium.com/getting-started/getting-started.md): This guide walks you through installing Vigolium, running your first scan, and understanding the results.
+- [Output and Reporting](https://docs.vigolium.com/getting-started/output-and-reporting.md): Vigolium supports multiple output formats for scan results, discovery data, and spidering output. This guide covers the available formats, result structures, and how to query stored findings.
+- [Vigolium Overview](https://docs.vigolium.com/getting-started/overview.md): Vigolium is a high-fidelity web vulnerability scanner written in Go. It combines deterministic, module-based scanning with AI-driven agentic analysis to provide broad and deep coverage of web application security issues.
+- [Server Mode: Ingesting Data via the API](https://docs.vigolium.com/getting-started/server-and-ingestion.md): This guide covers how to start Vigolium in server mode and ingest HTTP traffic into the database using the REST API and CLI.
+- [Agentic Scanning](https://docs.vigolium.com/guides/agentic-scan.md): Use AI-driven scanning modes — Query, Swarm, Pipeline, and Autopilot — to autonomously discover and verify vulnerabilities.
+- [CI/CD Integration](https://docs.vigolium.com/guides/ci-cd-integration.md): Integrate Vigolium into CI/CD pipelines to automatically scan applications for vulnerabilities on every deployment.
+- [Native Scan Phases](https://docs.vigolium.com/guides/native-scan-phases.md): Run Vigolium's native scan phases independently, skip specific phases, or chain them into a custom pipeline.
+- [Scanning a Single-Page Application (SPA)](https://docs.vigolium.com/guides/scanning-a-spa.md): How Vigolium handles SPAs built with React, Angular, or Vue using browser-based spidering.
+- [Scanning an API](https://docs.vigolium.com/guides/scanning-an-api.md): Scan REST APIs by importing endpoint definitions from OpenAPI specs, Postman collections, or curl commands.
+- [Stateless Scanning](https://docs.vigolium.com/guides/stateless-scan.md): Scan targets and get results in a single command without managing a persistent database — ideal for CI/CD, scripting, and quick checks.
+- [Whitebox Scanning](https://docs.vigolium.com/guides/whitebox-scanning.md): How to combine source code analysis (SAST) with dynamic scanning (DAST) for maximum vulnerability coverage.
+- [Authenticated Scanning](https://docs.vigolium.com/native-scan/authentication.md): Configure multi-session authenticated scanning with login flows, IDOR/BOLA testing, and token refresh.
+- [Anatomy of a Scan](https://docs.vigolium.com/native-scan/how-it-works.md): Traces the complete lifecycle of an HTTP request through a Vigolium scan, from CLI invocation to vulnerability finding.
+- [Scanner Modules Reference](https://docs.vigolium.com/native-scan/modules-reference.md): Complete reference for Vigolium's 210 scanner modules -127 active and 83 passive -covering the OWASP Top 10 and beyond.
+- [Audit - Active Vulnerability Scanning](https://docs.vigolium.com/native-scan/phases/audit.md): The core scanning phase that injects payloads at every insertion point to detect vulnerabilities in web applications.
+- [Deparos - Modern Adaptive Content Discovery](https://docs.vigolium.com/native-scan/phases/discovery.md): Intelligent content discovery engine that adapts its strategy dynamically using fingerprint-based soft-404 detection.
+- [Extension Scanning](https://docs.vigolium.com/native-scan/phases/extension.md): Run custom JavaScript or YAML extension modules against targets, alongside or instead of built-in scanner modules.
+- [KnownIssueScan - Known Vulnerability and Secret Detection](https://docs.vigolium.com/native-scan/phases/known-issue-scan.md): Checks targets for known CVEs, common misconfigurations, and exposed secrets using Nuclei templates and the Kingfisher secret detection engine
+- [Spitolas - Browser-Based Web Crawler](https://docs.vigolium.com/native-scan/phases/spidering.md): State-machine-driven web crawler using real Chromium for discovering application states through user-like interactions.
+- [Scan Scope - How Modules Are Dispatched](https://docs.vigolium.com/native-scan/scan-scope.md): Understand how scanner modules are dispatched at insertion-point, request, and host granularity.
+- [Scanning Modes Overview](https://docs.vigolium.com/native-scan/scanning-modes-overview.md): Pick the right scanning mode based on what you have: a URL, source code, an AI agent, or all of the above.
+- [Blackbox Scanning](https://docs.vigolium.com/native-scan/strategies.md): Test web applications from the outside without source code using crafted HTTP requests and response analysis.
+- [Projects: Multi-Tenant Data Isolation](https://docs.vigolium.com/others/projects.md): Vigolium supports project-based data isolation. Every scan record, finding, scope rule, source repo, and OAST interaction is tagged with a project_uuid, so multiple engagements can share the same database without data leaking across boundaries.
+- [Troubleshooting](https://docs.vigolium.com/others/troubleshooting.md): Common issues encountered when using Vigolium and their solutions.
+- [Ingesting HTTP Traffic](https://docs.vigolium.com/server-mode/ingestion.md): Get HTTP requests into Vigolium's database via API, CLI, or transparent proxy for vulnerability scanning.
+- [Transparent Proxy](https://docs.vigolium.com/server-mode/proxy.md): Use Vigolium's built-in HTTP proxy to passively record all traffic for scanning.
+- [Running the Server](https://docs.vigolium.com/server-mode/running-the-server.md): Run Vigolium as a persistent REST API server for traffic ingestion, scan triggers, and agent runs.
+
+## OpenAPI Specs
+
+- [openapi](https://docs.vigolium.com/api-reference/openapi.json)
+
+## Optional: Managed Solution
+
+- [Vigolium Cloud](https://github.com/vigolium): Managed scanning infrastructure, team collaboration, and continuous monitoring — all without self-hosting.
+
+
