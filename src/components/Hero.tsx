@@ -58,6 +58,15 @@ function TerminalBox() {
           border: "1px solid rgba(252,232,195,0.1)",
           borderRadius: "8px",
           overflow: "hidden",
+          transition: "box-shadow 0.3s ease, border-color 0.3s ease",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.borderColor = "rgba(80,250,123,0.4)";
+          e.currentTarget.style.boxShadow = "0 0 15px rgba(80,250,123,0.15), 0 0 30px rgba(80,250,123,0.08)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.borderColor = "rgba(252,232,195,0.1)";
+          e.currentTarget.style.boxShadow = "none";
         }}
       >
         <div

@@ -33,28 +33,10 @@ const screenshots = [
     description: "Terminal-based scanning with live output",
   },
   {
-    src: "/vigolium-finding-list.png",
-    label: "SCREEN-05",
-    title: "Findings List",
-    description: "Detailed vulnerability findings with severity levels",
-  },
-  {
     src: "/vigolium-static-report-1.png",
-    label: "SCREEN-06",
+    label: "SCREEN-05",
     title: "Static Report",
     description: "Browser-based HTML report with traffic analysis",
-  },
-  {
-    src: "/vigolium-traffic-list.png",
-    label: "SCREEN-07",
-    title: "Traffic Records",
-    description: "HTTP traffic capture and inspection",
-  },
-  {
-    src: "/vigolium-ui-dashboard-2.png",
-    label: "SCREEN-08",
-    title: "Findings Breakdown",
-    description: "Visual breakdown of findings by module and type",
   },
 ];
 

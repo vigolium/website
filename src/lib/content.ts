@@ -155,7 +155,7 @@ export const integrations: Integration[] = [
   },
   {
     name: "AI Backends",
-    description: "Claude, Codex, Gemini, OpenCode, Cursor",
+    description: "Claude, Codex, Gemini, OpenCode, Cursor via Agent SDK",
   },
 ];
 

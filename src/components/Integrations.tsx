@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { integrations } from "@/lib/content";
 import { RegistrationMark } from "./decorators";
 import { SectionHeading } from "./SectionHeading";
+import { ChevronRight } from "lucide-react";
 
 export function Integrations() {
   return (
@@ -30,16 +31,11 @@ export function Integrations() {
             >
               <div className="col-span-1 relative flex items-center py-5">
                 <RegistrationMark className="top-1/2 left-0 -translate-y-1/2" />
-                <span
-                  className="ngb-annotation ml-4"
-                  style={{
-                    fontSize: "0.7rem",
-                    color: "#53bdfa",
-                    fontWeight: 700,
-                  }}
-                >
-                  INTG-{String(i + 1).padStart(2, "0")}
-                </span>
+                <ChevronRight
+                  size={20}
+                  className="ml-4"
+                  style={{ color: "#53bdfa" }}
+                />
               </div>
 
               <div
