@@ -13,14 +13,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vigolium — High-fidelity vulnerability scanner fusing agentic AI with native speed, modularity, and precision.",
+  title: "Vigolium - High-fidelity vulnerability scanner fusing agentic AI with native speed, modularity, and precision",
   description:
     "Agentic AI meets native speed. Find vulnerabilities others miss with Vigolium's modular, precision-driven scanning engine.",
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "Vigolium — High-fidelity vulnerability scanner fusing agentic AI with native speed, modularity, and precision.",
+    title: "Vigolium - High-fidelity vulnerability scanner fusing agentic AI with native speed, modularity, and precision",
     description:
       "Agentic intelligence that scans with surgical precision. Fusing AI with native speed, modularity, and 215+ scanner modules.",
     url: "https://vigolium.com",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vigolium — High-fidelity vulnerability scanner fusing agentic AI with native speed, modularity, and precision.",
+    title: "Vigolium - High-fidelity vulnerability scanner fusing agentic AI with native speed, modularity, and precision",
     description:
       "Agentic intelligence that scans with surgical precision. Fusing AI with native speed, modularity, and 215+ scanner modules.",
     images: ["/vigolium-main-workbench.png"],
