@@ -31,6 +31,7 @@ export function WindowChrome({ title }: { title: string }) {
           fontSize: "0.65rem",
           color: "#918175",
           letterSpacing: "0.1em",
+          fontFamily: "'Space Grotesk', sans-serif",
         }}
       >
         {title}

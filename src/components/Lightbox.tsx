@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { X } from "lucide-react";
@@ -14,14 +16,22 @@ export function Lightbox({
   title: string;
   onClose: () => void;
 }) {
-  return (
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [onClose]);
+
+  return createPortal(
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="fixed inset-0 z-[9999] flex items-center justify-center"
-      style={{ backgroundColor: "rgba(0,0,0,0.85)" }}
+      className="fixed inset-0 z-[10000] flex items-center justify-center"
+      style={{ backgroundColor: "rgba(28,27,25,0.7)", backdropFilter: "blur(24px) saturate(1.2)", WebkitBackdropFilter: "blur(24px) saturate(1.2)", fontFamily: "'Space Grotesk', sans-serif" }}
       onClick={onClose}
     >
       <motion.div
@@ -78,6 +88,7 @@ export function Lightbox({
           />
         </div>
       </motion.div>
-    </motion.div>
+    </motion.div>,
+    document.body,
   );
 }

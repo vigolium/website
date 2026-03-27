@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useCallback } from "react";
 
-import { Space_Grotesk } from "next/font/google";
+import { Space_Grotesk, Syne } from "next/font/google";
 import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
 import { HowItWorks } from "@/components/HowItWorks";
@@ -11,13 +11,19 @@ import { Stats } from "@/components/Stats";
 import { Integrations } from "@/components/Integrations";
 import { Gallery } from "@/components/Gallery";
 import { Cloud } from "@/components/Cloud";
-import { Footer } from "@/components/Footer";
+import { Footer, QuickStart } from "@/components/Footer";
 import { ScrollProgress } from "@/components/animations";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space",
   weight: ["300", "400", "500", "600", "700"],
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 /* ── Noise grain overlay ── */
@@ -132,7 +138,7 @@ function HexWatermark() {
   );
 }
 
-const SECTION_IDS = ["features", "how-it-works", "capabilities", "stats", "integrations", "gallery", "cloud"];
+const SECTION_IDS = ["quick-start", "features", "how-it-works", "capabilities", "stats", "integrations", "gallery", "cloud"];
 
 function HashTracker() {
   useEffect(() => {
@@ -157,16 +163,44 @@ function HashTracker() {
     );
 
     for (const el of sections) observer.observe(el);
-    return () => observer.disconnect();
+
+    // Handle browser back/forward: scroll to the hash section
+    function onPopState() {
+      const hash = window.location.hash.slice(1);
+      if (hash) {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+
+    // Also handle initial load with a hash (e.g. returning via back button)
+    if (window.location.hash) {
+      const hash = window.location.hash.slice(1);
+      const el = document.getElementById(hash);
+      if (el) {
+        requestAnimationFrame(() => el.scrollIntoView({ behavior: "smooth" }));
+      }
+    }
+
+    window.addEventListener("popstate", onPopState);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("popstate", onPopState);
+    };
   }, []);
 
   return null;
 }
 
 export default function Page() {
+
   return (
     <div
-      className={`${spaceGrotesk.variable} relative min-h-screen overflow-x-hidden`}
+      className={`${spaceGrotesk.variable} ${syne.variable} relative min-h-screen overflow-x-hidden`}
       style={{
         fontFamily: "var(--font-space), sans-serif",
         backgroundColor: "#1c1b19",
@@ -431,6 +465,8 @@ export default function Page() {
 
       <div className="relative z-10">
         <Hero />
+        <QuickStart />
+        <div className="ng-divider" />
         <Features />
         <HowItWorks />
         <Capabilities />

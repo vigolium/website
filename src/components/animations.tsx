@@ -15,7 +15,7 @@ import {
 
 const SCRAMBLE_CHARS = "!@#$%^&*()_+-=[]{}|;:,.<>?/~`01";
 
-export function useTextScramble(text: string, inView: boolean) {
+export function useTextScramble(text: string, inView: boolean, speed?: { duration?: number; stagger?: number }) {
   const [display, setDisplay] = useState(text);
   const hasPlayed = useRef(false);
 
@@ -24,8 +24,8 @@ export function useTextScramble(text: string, inView: boolean) {
     hasPlayed.current = true;
 
     const chars = text.split("");
-    const duration = 600; // total ms
-    const staggerPerChar = 40; // ms offset per character
+    const duration = speed?.duration ?? 600; // total ms
+    const staggerPerChar = speed?.stagger ?? 40; // ms offset per character
     const startTime = performance.now();
     let animId: number;
 

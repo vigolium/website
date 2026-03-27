@@ -63,6 +63,11 @@ export default function RootLayout({
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.addEventListener("pageshow",function(e){if(e.persisted){document.documentElement.classList.add("bfcache-restored")}})`,
+          }}
+        />
       </head>
       <body>{children}</body>
     </html>

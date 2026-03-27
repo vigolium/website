@@ -15,13 +15,13 @@ export function Stats() {
     <section
       ref={sectionRef}
       id="stats"
-      className="ng-section px-6 py-16 md:py-20"
+      className="ng-section px-6 py-8 md:py-12"
       style={{ borderBottom: "1px solid rgba(252,232,195,0.1)" }}
     >
       <div className="mx-auto max-w-6xl">
         <SectionHeading annotation="Metrics" heading="By The Numbers" />
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}

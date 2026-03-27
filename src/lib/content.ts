@@ -129,7 +129,8 @@ export const capabilities: Capability[] = [
 ];
 
 export const stats: Stat[] = [
-  { value: "215+", label: "Scanner modules — active and passive" },
+  { value: "130+", label: "Active scanner modules" },
+  { value: "85+", label: "Passive scanner modules" },
   { value: "6", label: "Native scan phases" },
   { value: "12", label: "Agentic scan phases" },
   { value: "10+", label: "Frameworks with dedicated scanners" },
@@ -160,8 +161,9 @@ export const integrations: Integration[] = [
 ];
 
 export const footerCta = {
-  headline: "Clone, build, scan. Under 5 minutes.",
-  buttonLabel: "View on GitHub",
+  headline: "From zero to scanning in under 5 minutes.",
+  subtitle: "Free and open source.",
+  buttonLabel: "Quick Start",
   buttonHref: "https://github.com/vigolium/vigolium",
 };
 

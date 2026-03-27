@@ -10,7 +10,7 @@ export function Integrations() {
   return (
     <section
       id="integrations"
-      className="ng-section px-6 py-16 md:py-20"
+      className="ng-section px-6 py-8 md:py-12"
       style={{ borderBottom: "1px solid rgba(252,232,195,0.1)" }}
     >
       <div className="mx-auto max-w-6xl">

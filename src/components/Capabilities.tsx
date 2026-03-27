@@ -73,7 +73,7 @@ export function Capabilities() {
   return (
     <section
       id="capabilities"
-      className="ng-section relative px-6 py-16 md:py-20"
+      className="ng-section relative px-6 py-8 md:py-12"
       style={{ borderBottom: "1px solid rgba(252,232,195,0.1)" }}
     >
       <div className="mx-auto max-w-6xl relative z-10">
