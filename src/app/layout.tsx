@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "Vigolium — High-Fidelity Vulnerability Scanner",
   description:
     "Agentic AI meets native speed. Find vulnerabilities others miss with Vigolium's modular, precision-driven scanning engine.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
