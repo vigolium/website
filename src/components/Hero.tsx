@@ -38,20 +38,20 @@ function useTypewriter(text: string, delay: number, speed = 30) {
 /* ── Terminal copy box ── */
 export function TerminalBox() {
   const [copied, setCopied] = useState(false);
-  const hostnameRef = useRef("");
+  const [hostname, setHostname] = useState("");
 
   useEffect(() => {
-    hostnameRef.current = window.location.origin;
+    setHostname(window.location.origin);
   }, []);
 
   const handleCopy = useCallback(() => {
-    const cmd = `curl -fsSL ${hostnameRef.current}/install.sh | bash`;
+    const cmd = `curl -fsSL ${hostname}/install.sh | bash`;
     navigator.clipboard.writeText(cmd);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-  }, []);
+  }, [hostname]);
 
-  const command = `curl -fsSL ${hostnameRef.current}/install.sh | bash`;
+  const command = `curl -fsSL ${hostname}/install.sh | bash`;
 
   return (
       <div
