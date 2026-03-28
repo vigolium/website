@@ -9,31 +9,31 @@ import { Lightbox } from "./Lightbox";
 
 const screenshots = [
   {
-    src: "/vigolium-ui-dashboard-1.png",
+    src: "https://cdn.vigolium.com/assets/vigolium-ui-dashboard-1.png",
     label: "SCREEN-01",
     title: "Dashboard Overview",
     description: "Real-time severity distribution and scan control",
   },
   {
-    src: "/vigolium-agentic-scan.png",
+    src: "https://cdn.vigolium.com/assets/vigolium-agentic-scan.png",
     label: "SCREEN-02",
     title: "Agentic Scan",
     description: "AI-powered scanning with agent sessions",
   },
   {
-    src: "/vigolium-native-scan.png",
+    src: "https://cdn.vigolium.com/assets/vigolium-native-scan.png",
     label: "SCREEN-03",
     title: "Native Scan",
     description: "High-speed native scanning configuration",
   },
   {
-    src: "/vigolium-cli-scan-1.png",
+    src: "https://cdn.vigolium.com/assets/vigolium-cli-scan-1.png",
     label: "SCREEN-04",
     title: "CLI Scanner",
     description: "Terminal-based scanning with live output",
   },
   {
-    src: "/vigolium-static-report-1.png",
+    src: "https://cdn.vigolium.com/assets/vigolium-static-report-1.png",
     label: "SCREEN-05",
     title: "Static Report",
     description: "Browser-based HTML report with traffic analysis",

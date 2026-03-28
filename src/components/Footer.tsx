@@ -161,7 +161,7 @@ export function Footer() {
           <div className="md:col-span-4">
             <div className="flex items-center gap-3 mb-2">
               <Image
-                src="/vigolium-logo-small.png"
+                src="https://cdn.vigolium.com/assets/vigolium-logo-small.png"
                 alt="Vigolium"
                 width={24}
                 height={24}
@@ -214,6 +214,11 @@ export function Footer() {
             marginTop: "3rem",
             paddingTop: "1.5rem",
             borderTop: "1px dashed rgba(252,232,195,0.08)",
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "1rem",
           }}
         >
           <p
@@ -222,10 +227,63 @@ export function Footer() {
               letterSpacing: "0.1em",
               textTransform: "uppercase",
               color: "#918175",
+              margin: 0,
             }}
           >
             &copy; 2026 Vigolium. All rights reserved.
           </p>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <a
+              href="/request-demo"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                fontSize: "0.65rem",
+                letterSpacing: "0.1em",
+                fontFamily: "monospace",
+                color: "#60a5fa",
+                padding: "3px 10px",
+                border: "1px solid rgba(96,165,250,0.3)",
+                borderRadius: "3px",
+                backgroundColor: "rgba(96,165,250,0.05)",
+                textDecoration: "none",
+                textTransform: "uppercase",
+                transition: "box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 0 12px rgba(96,165,250,0.3), 0 0 24px rgba(96,165,250,0.15)";
+                e.currentTarget.style.borderColor = "rgba(96,165,250,0.6)";
+                e.currentTarget.style.backgroundColor = "rgba(96,165,250,0.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.borderColor = "rgba(96,165,250,0.3)";
+                e.currentTarget.style.backgroundColor = "rgba(96,165,250,0.05)";
+              }}
+            >
+              <ExternalLink size={12} />
+              Request Demo
+            </a>
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                fontSize: "0.65rem",
+                letterSpacing: "0.1em",
+                fontFamily: "monospace",
+                color: "#50fa7b",
+                padding: "3px 10px",
+                border: "1px solid rgba(80,250,123,0.3)",
+                borderRadius: "3px",
+                backgroundColor: "rgba(80,250,123,0.05)",
+              }}
+            >
+              <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#50fa7b", animation: "statusPulse 2s ease-in-out infinite" }} />
+              v1.0.0-alpha
+            </span>
+          </div>
         </div>
       </div>
     </footer>

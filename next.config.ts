@@ -7,6 +7,15 @@ const nextConfig: NextConfig = {
     output: "export",
     distDir: "dist",
   }),
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.vigolium.com",
+        pathname: "/assets/**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

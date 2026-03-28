@@ -161,8 +161,8 @@ export const integrations: Integration[] = [
 ];
 
 export const footerCta = {
-  headline: "From zero to scanning in under 5 minutes.",
-  subtitle: "Free and open source.",
+  headline: "Run Vigolium Open-Source and start scanning in under 5 minutes.",
+  subtitle: "No signup, no limits.",
   buttonLabel: "Quick Start",
   buttonHref: "https://github.com/vigolium/vigolium",
 };
