@@ -68,7 +68,7 @@ export function Gallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="relative cursor-pointer"
+              className="relative cursor-pointer w-[280px] sm:w-[380px] md:w-[520px]"
               whileHover={{
                 backgroundColor: "rgba(252,232,195,0.03)",
                 borderColor: "rgba(80,250,123,0.4)",
@@ -79,7 +79,6 @@ export function Gallery() {
                 transition: "all 0.25s ease",
                 overflow: "hidden",
                 flexShrink: 0,
-                width: "520px",
                 scrollSnapAlign: "center",
                 display: "flex",
                 flexDirection: "column",
