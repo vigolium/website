@@ -281,7 +281,7 @@ export function Footer() {
               }}
             >
               <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#50fa7b", animation: "statusPulse 2s ease-in-out infinite" }} />
-              v1.0.0-alpha
+              v0.0.1-alpha
             </span>
           </div>
         </div>

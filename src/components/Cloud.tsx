@@ -43,7 +43,7 @@ export function Cloud() {
             className="ng-body mt-4"
             style={{ fontSize: "0.9rem", maxWidth: "480px" }}
           >
-            Managed scanning infrastructure, team collaboration, and continuous monitoring — all without self-hosting.
+            Cutting-edge AI agents handle your scanning, analysis, and continuous monitoring — no infrastructure to manage, nothing to self-host.
           </p>
         </motion.div>
       </div>

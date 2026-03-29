@@ -1,8 +1,64 @@
 "use server";
 
 import { Resend } from "resend";
+import disposableDomains from "disposable-email-domains";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+const FREE_EMAIL_PROVIDERS = new Set([
+  "gmail.com",
+  "yahoo.com",
+  "yahoo.co.uk",
+  "yahoo.co.in",
+  "hotmail.com",
+  "hotmail.co.uk",
+  "outlook.com",
+  "outlook.co.uk",
+  "live.com",
+  "live.co.uk",
+  "aol.com",
+  "icloud.com",
+  "me.com",
+  "mac.com",
+  "mail.com",
+  "msn.com",
+  "protonmail.com",
+  "proton.me",
+  "zoho.com",
+  "yandex.com",
+  "yandex.ru",
+  "gmx.com",
+  "gmx.net",
+  "fastmail.com",
+  "tutanota.com",
+  "tuta.com",
+  "inbox.com",
+  "mail.ru",
+  "qq.com",
+  "163.com",
+  "126.com",
+  "naver.com",
+  "daum.net",
+  "hanmail.net",
+  "rediffmail.com",
+]);
+
+const DISPOSABLE_DOMAINS = new Set(disposableDomains as string[]);
+
+function isBusinessEmail(email: string): { valid: boolean; reason?: string } {
+  const domain = email.split("@")[1]?.toLowerCase();
+  if (!domain) return { valid: false, reason: "Invalid email address." };
+
+  if (FREE_EMAIL_PROVIDERS.has(domain)) {
+    return { valid: false, reason: "Please use your work email address." };
+  }
+
+  if (DISPOSABLE_DOMAINS.has(domain)) {
+    return { valid: false, reason: "Disposable email addresses are not allowed." };
+  }
+
+  return { valid: true };
+}
 
 export type FormState = {
   success: boolean;
@@ -21,6 +77,11 @@ export async function submitDemoRequest(
 
   if (!name || !email || !company) {
     return { success: false, error: "Please fill in all required fields." };
+  }
+
+  const emailCheck = isBusinessEmail(email);
+  if (!emailCheck.valid) {
+    return { success: false, error: emailCheck.reason };
   }
 
   const { error } = await resend.emails.send({

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { motion } from "motion/react";
@@ -16,6 +16,12 @@ export function Lightbox({
   title: string;
   onClose: () => void;
 }) {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [src]);
+
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -72,20 +78,46 @@ export function Lightbox({
           }}
         >
           <WindowChrome title={title} />
-          <Image
-            src={src}
-            alt={title}
-            width={1920}
-            height={1080}
-            style={{
-              width: "100%",
-              height: "auto",
-              display: "block",
-              maxHeight: "80vh",
-              objectFit: "contain",
-              backgroundColor: "#1c1b19",
-            }}
-          />
+          <div style={{ position: "relative", backgroundColor: "#1c1b19" }}>
+            {!loaded && (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  aspectRatio: "16/9",
+                  width: "100%",
+                  maxHeight: "80vh",
+                }}
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className="animate-spin"
+                >
+                  <circle cx="12" cy="12" r="10" stroke="rgba(252,232,195,0.15)" strokeWidth="3" />
+                  <path d="M12 2a10 10 0 0 1 10 10" stroke="#50fa7b" strokeWidth="3" strokeLinecap="round" />
+                </svg>
+              </div>
+            )}
+            <Image
+              src={src}
+              alt={title}
+              width={1920}
+              height={1080}
+              priority
+              onLoad={() => setLoaded(true)}
+              style={{
+                width: "100%",
+                height: "auto",
+                display: loaded ? "block" : "none",
+                maxHeight: "80vh",
+                objectFit: "contain",
+              }}
+            />
+          </div>
         </div>
       </motion.div>
     </motion.div>,

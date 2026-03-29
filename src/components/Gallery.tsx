@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { CornerBrackets } from "./decorators";
@@ -42,6 +42,13 @@ const screenshots = [
 
 export function Gallery() {
   const [selected, setSelected] = useState<number | null>(null);
+
+  useEffect(() => {
+    screenshots.forEach((shot) => {
+      const img = new window.Image();
+      img.src = `/_next/image?url=${encodeURIComponent(shot.src)}&w=1920&q=75`;
+    });
+  }, []);
 
   return (
     <section
