@@ -39,6 +39,8 @@ log() {
 	echo -e "${BLUE}[INFO]${NC} $1" >&2
 }
 
+log "We're currently only open to paid customers. Visit https://www.vigolium.com/request-demo to request a demo."
+
 warn() {
 	echo -e "${YELLOW}[WARN]${NC} $1" >&2
 }

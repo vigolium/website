@@ -46,8 +46,8 @@ export function TerminalBox() {
   }, []);
 
   const handleCopy = useCallback(() => {
-    const cmd = `curl -fsSL ${hostname}/install.sh | bash`;
-    navigator.clipboard.writeText(cmd);
+    const text = `# We're currently offering private access to enterprise customers only.\n# Visit https://www.vigolium.com/request-demo to request a demo\ncurl -fsSL ${hostname}/install.sh | bash`;
+    navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   }, [hostname]);
@@ -102,13 +102,23 @@ export function TerminalBox() {
               fontSize: "0.85rem",
               color: "#50fa7b",
               fontFamily: "monospace",
-              whiteSpace: "nowrap",
               overflow: "hidden",
               textOverflow: "ellipsis",
+              display: "flex",
+              flexDirection: "column",
+              gap: "2px",
             }}
           >
-            <span style={{ color: "#918175" }}>$ </span>
-            {command}
+            <span style={{ color: "#918175" }}>
+              # We're currently offering private access to enterprise customers only.
+            </span>
+            <span style={{ color: "#918175" }}>
+              # Visit https://www.vigolium.com/request-demo to request a demo
+            </span>
+            <span style={{ whiteSpace: "nowrap" }}>
+              <span style={{ color: "#918175" }}>$ </span>
+              {command}
+            </span>
           </code>
           <button
             onClick={handleCopy}

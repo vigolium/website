@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Cloud as CloudIcon } from "lucide-react";
+import { Cloud as CloudIcon, ArrowRight } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 import { CornerBrackets } from "./decorators";
 
@@ -43,8 +43,39 @@ export function Cloud() {
             className="ng-body mt-4"
             style={{ fontSize: "0.9rem", maxWidth: "480px" }}
           >
-            Cutting-edge AI agents handle your scanning, analysis, and continuous monitoring — no infrastructure to manage, nothing to self-host.
+            Cutting-edge AI agents handle your scanning, analysis, and continuous monitoring. No infrastructure to manage, nothing to self-host.
           </p>
+
+          <p
+            className="ng-body mt-3"
+            style={{ fontSize: "0.85rem", maxWidth: "480px", opacity: 0.7 }}
+          >
+            We&apos;re currently offering private access to enterprise customers only.
+          </p>
+
+          <a
+            href="https://www.vigolium.com/request-demo"
+            className="mt-5 inline-flex items-center gap-2"
+            style={{
+              fontSize: "0.85rem",
+              color: "#53bdfa",
+              textDecoration: "none",
+              padding: "8px 20px",
+              border: "1px solid rgba(83,189,250,0.3)",
+              borderRadius: "6px",
+              transition: "all 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "rgba(83,189,250,0.6)";
+              e.currentTarget.style.boxShadow = "0 0 12px rgba(83,189,250,0.15)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "rgba(83,189,250,0.3)";
+              e.currentTarget.style.boxShadow = "none";
+            }}
+          >
+            Request a Demo <ArrowRight size={14} />
+          </a>
         </motion.div>
       </div>
     </section>
